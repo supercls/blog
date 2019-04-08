@@ -1,0 +1,335 @@
+@charset "utf-8";
+$primaryColor:#666666;
+$primaryFontweight:400;
+@mixin box-sizing ($sizing) {
+    -webkit-box-sizing: $sizing;
+    -moz-box-sizing: $sizing;
+    box-sizing: $sizing;
+}
+
+.colorbg {
+    color: none;
+    background-color: none;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #F4F4F4;
+    line-height: 1.3;
+    -webkit-overflow-scrolling: touch;
+    will-change: scroll;
+	font-size: 28px;}
+
+html {
+    font-family: PingFangSC-Regular, Helvetica Neue, Hiragino Sans GB, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+footer,
+header,
+menu,
+nav,
+section {
+    display: block
+}
+
+body,
+button,
+div,
+dl,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+input,
+legend,
+li,
+menu,
+nav,
+ol,
+p,
+pre,
+section,
+td,
+textarea,
+th,
+ul {
+    border: 0 none;
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    /* 在X5新内核Blink中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决 */
+    max-height: 100000px;
+}
+
+a {
+    -webkit-touch-callout: none;
+    text-decoration: none;
+    color: $primaryColor;
+    outline: 0;
+    &:active,
+    a:hover {
+        outline: 0
+    }
+}
+
+input,textarea,button{
+    border: none;
+    outline: none;
+    resize: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    font-size:1em;
+  }
+
+a,
+img {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+    -webkit-touch-callout: none
+}
+
+img {
+    border: 0;
+    max-width: 100%
+}
+
+ul,
+li {
+    list-style: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: inherit;
+    font-weight: $primaryFontweight
+}
+
+.clearfix:after {
+    display: block;
+    clear: both;
+    content: "\0020";
+    visibility: hidden;
+    height: 0
+}
+
+p {
+    color: $primaryColor;
+    line-height: 1.6;
+}
+
+i {
+    font-style: normal;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*公共css样式*/
+.fl{
+    float: left;
+  }
+.fr{
+    float: right;
+  }
+  /*清除浮动*/
+  .clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+  }
+  .clearfix:after {
+    clear: both;
+  }
+  .clearfix {
+    *zoom: 1; /*IE/7/6*/
+  }
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.img-responsives {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+
+/*自动隐藏文字sad*/
+
+.fzs-ellipsis-1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.fzs-ellipsis {
+    @extend .fzs-ellipsis-1;
+    display: -webkit-box;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.fzs-ellipsis-2 {
+    display: -webkit-box;
+    @extend .fzs-ellipsis-1;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+[v-cloak] {
+    display: none;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.h5_wrapper {
+    background: #f0f0f0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.color_3 {
+    color: #333;
+}
+.margin_3auto{
+    margin: 0.3rem auto 0.3rem auto !important;
+}
+.color_6 {
+    color: #666;
+    font-size: 0.32rem;
+}
+
+.color_9 {
+    color: #999;
+    font-size: 0.28rem;
+}
+
+.color_fff {
+    color: #fff;
+}
+
+.h5_wrapper .mint-header {
+    background: none;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0 3%;
+    z-index: 999999;
+}
+
+.h5_wrapper .mint-header .mint-header-title {
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.mint-toast {
+    z-index: 100000;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.flex-v {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.flex-1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.flex-align-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.flex-pack-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.flex-pack-justify {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+    background-color: #f7f7f7;
+}
+img { content: normal !important; }
+.mint-cell .mint-cell-wrapper {
+    border: none !important;
+    background-image: none;
+}
+
+input,textarea,button{
+    border: none;
+    outline: none;
+    resize: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+}
+
+.mint-datetime-cancel{
+    color: #646464;
+}
+input:disabled, input[disabled]{ -webkit-opacity:1; opacity: 1;color: #666;-webkit-text-fill-color: #666;  }
+.mint-datetime-confirm {
+    color: #0575F2 !important;
+}
+.mint-field-core{
+    text-align: right;
+    color: #666;
+}
+
+

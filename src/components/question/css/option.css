@@ -1,0 +1,54 @@
+.public-lable {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 0 30px;
+  border-bottom: 1px solid #d1d1d1;
+  background-color: #f7f7f7;
+  position: relative;
+}
+.public-lable .public-input {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  z-index: -1;
+}
+.public-lable .public-span {
+  display: inline-block;
+  width: 90%;
+  padding: 30px 0;
+  font-size: 32px;
+  color: #666;
+}
+.public-lable .public-right {
+  display: inline-block;
+  width: 35px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 30px;
+}
+.public-lable .public-ring {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid #026dbb;
+  position: relative;
+}
+.public-lable .public-ring::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.public-input:checked + .active .public-ring::before {
+  background-color: #026dbb;
+}
