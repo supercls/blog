@@ -9,7 +9,9 @@ var sqlMap = {
     	get:'select * from article order by createTime desc limit ?, ?',
     	addLikes:'update article set',
     	reader:'update article set',
-    	review:'insert into review (user,content,articleId,createTime) values(?,?,?,?)'
+    	review:'insert into review (user,userid,content,articleId,createTime) values(?,?,?,?,?)',
+    	callreview:'insert into childreview (user,userid,parentReviewid,content,createTime) values(?,?,?,?)',
+    	getcall:'select * from  review',
     }
 }
 
