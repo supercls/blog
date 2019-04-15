@@ -8,6 +8,11 @@
   <el-button type="info" disabled>信息按钮</el-button>
   <el-button type="warning" disabled>警告按钮</el-button>
   <el-button type="danger" disabled>危险按钮</el-button>
+            <form action="http://localhost:3000/api/upload" method="post" enctype="multipart/form-data"  target="frameName">
+                <input type="file" name="content"  style="display: block"/>
+                <button @submit.prevent="uploads">上传</button>
+                <iframe ref="frameName" src="" frameborder="0" name="frameName"></iframe>
+            </form>
 </el-row>
     </div>
 </template>
