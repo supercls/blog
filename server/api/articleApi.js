@@ -14,6 +14,13 @@ var response=function(bolen,msg,data){
         dtData:data||[]
     }
 }
+conn.on('close',function(err) {
+    if(err) {
+        conn = mysql.createConnection(models.mysql);
+    } else {
+        console.log('conneciton closed normally')
+    }
+});
 // 添加文章接口
 router.post('/addArticle', (req, res) => {
     var sql_add = $sql.article.add;

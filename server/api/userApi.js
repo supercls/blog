@@ -14,6 +14,13 @@ var response=function(bolen,msg,data){
          dtData:data||[]
     }
 }
+conn.on('close',function(err) {
+    if(err) {
+        conn = mysql.createConnection(models.mysql);
+    } else {
+        console.log('conneciton closed normally')
+    }
+});
 // 增加用户接口  不允许添加重复用户名用户
 router.post('/saveUser', (req, res) => {
     var sql_add = $sql.user.add;
