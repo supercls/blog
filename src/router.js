@@ -1,6 +1,8 @@
 const Index = r => require.ensure([], () => r(require('@/views/Home.vue')), 'Index')
 const login = r => require.ensure([], () => r(require('@/views/login.vue')), 'login')
 const register = r => require.ensure([], () => r(require('@/views/register.vue')), 'register')
+const article = r => require.ensure([], () => r(require('@/views/article.vue')), 'article')
+import layout from '@/views/layout'
 
 export default [
   {
@@ -15,26 +17,32 @@ export default [
   },
   {
   	path:'/Index',
-  	component:Index,
+  	component:layout,
   	name:'Index',
-        meta: {
-            title: '首页'
-        }  
+    meta: {
+        title: '首页'
+    },
+    children:[
+      {
+        path:'/Index/article',
+        component:article
+      }
+    ]  
   },
   {
     path:'/login',
     component:login,
     name:'login',
-        meta: {
-            title: '登录'
-        }  
+    meta: {
+        title: '登录'
+    }  
   },
   {
     path:'/register',
     component:register,
     name:'register',
-        meta: {
-            title: '注册'
-        }  
+    meta: {
+        title: '注册'
+    }  
   }
 ]

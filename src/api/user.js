@@ -1,6 +1,6 @@
 import service from '@/utils/fetch.js'
         // 提交绑定数据
-export function saveUser(data) { //fetch  promise用法
+export function saveUser(data) { //注册
     return service({
         url: '/user/SaveUser',
         method: 'post',
@@ -8,10 +8,10 @@ export function saveUser(data) { //fetch  promise用法
     })
 }
 
-export function getUser(data) { //fetch  promise用法
+export function getArticle(data) { //获取文章列表
     return service({
-        url: '/user/SaveUser',
+        url: '/article/getArticle',
         method: 'get',
-        data
+        params:data
     })
 }
