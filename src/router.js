@@ -2,6 +2,7 @@ const Index = r => require.ensure([], () => r(require('@/views/Home.vue')), 'Ind
 const login = r => require.ensure([], () => r(require('@/views/login.vue')), 'login')
 const register = r => require.ensure([], () => r(require('@/views/register.vue')), 'register')
 const article = r => require.ensure([], () => r(require('@/views/article.vue')), 'article')
+const articleInfo = r => require.ensure([], () => r(require('@/views/articleInfo.vue')), 'articleInfo')
 import layout from '@/views/layout'
 
 export default [
@@ -26,7 +27,11 @@ export default [
       {
         path:'/Index/article',
         component:article
-      }
+      },
+			{
+			  path:'/Index/articleInfo',
+			  component:articleInfo
+			}
     ]  
   },
   {

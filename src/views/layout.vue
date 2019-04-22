@@ -28,18 +28,15 @@ export default {
 <style lang="less" scoped>
     .blog-home{
         .main-top{
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
+			width: 100%;
+			z-index: 9999;
         }
         .main-center{
-            position: absolute;
-            top: 100px;
-            left: 0px;
-            right: 20%;
-            bottom: 0;
-            overflow-y:scroll;
+			padding-top: 100px;
         }
     }
 </style>

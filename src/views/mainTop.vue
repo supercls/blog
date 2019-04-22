@@ -23,6 +23,8 @@
             </el-submenu>
             <el-menu-item index="3" disabled>消息中心</el-menu-item>
             <el-menu-item index="4"><router-link to="/Index/article">article</router-link></el-menu-item>
+			<el-menu-item index="5"><router-link to="/register">注册</router-link></el-menu-item>
+			<el-menu-item index="6"><router-link to="/login">登陆</router-link></el-menu-item>
         </el-menu>
     </div>
 </template>

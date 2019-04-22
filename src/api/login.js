@@ -1,7 +1,7 @@
 import service from '@/utils/fetch.js'
 export function login(data) { //fetch  promise用法
     return service({
-        url: 'api/User/LoginIn',
+        url: '/user/loginUser',
         method: 'post',
         data:data
     })

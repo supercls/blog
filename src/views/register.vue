@@ -26,6 +26,9 @@
                     <el-button type="primary" @click="onSubmit('form')">确定</el-button>
                     <el-button @click="onCancle()">取消</el-button>
                 </el-form-item>
+				<el-form-item>
+				    <span class="onLogin">已有账号，去<a href="javascript:;" @click="onLogin()">登陆</a></span>
+				</el-form-item>
             </el-form>
         </div>
     </div>
@@ -82,6 +85,8 @@ export default {
                     if (valid) {
                        saveUser(this.form).then(res=>{
                             console.log(res)
+							alert("注册成功")
+							this.$router.push('/login');
                        })
                     } else {
                         console.log('error submit!!');
@@ -91,6 +96,9 @@ export default {
                 
             },
             onCancle() {
+                this.$router.push('/Index/article');
+            },
+			onLogin() {
                 this.$router.push('/login');
             },
             getDateTimes(str) {
@@ -114,9 +122,11 @@ export default {
     }   
     .userContent {
         width: 400px;
-        margin: 0 auto;
+        margin: 60px auto 0;
     }
     .select-sex {
         width: 320px;
     }
+	.onLogin{color: #606266;}
+	.onLogin a{color: #409EFF;text-decoration: underline;}
 </style>

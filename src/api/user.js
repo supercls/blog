@@ -15,3 +15,11 @@ export function getArticle(data) { //获取文章列表
         params:data
     })
 }
+
+export function getArticleInfo(data) { //获取文章详情页
+    return service({
+        url: '/article/getArticle'+newsID,
+        method: 'get',
+        params:data
+    })
+}

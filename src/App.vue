@@ -28,6 +28,7 @@
   }
 </script>
 <style lang="less">
+	body{background: #fff;}
   .router-fade-enter-active, .router-fade-leave-active {
     transition: opacity .25s;
   }

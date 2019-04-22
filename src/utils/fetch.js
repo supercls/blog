@@ -13,7 +13,7 @@ else{
     httpBefore='http://'
 }
 let httpName=httpBefore+window.location.host;
-let BASE_API='http://localhost:3000/api';
+let BASE_API='http://118.24.221.56:3000/api';
 if(httpName.indexOf('localhost')==-1){
     BASE_API=httpName+'/ZJXJ.API/V1.0.5/api/'   //版本需要随时修改
 }
