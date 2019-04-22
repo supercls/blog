@@ -25,7 +25,7 @@ conn.on('close',function(err) {
 router.post('/addArticle', (req, res) => {
     var sql_add = $sql.article.add;
     var params = req.body;
-    conn.query(sql_add, [params.title, params.author,params.content,params.type,params.readers,params.likes,new Date()], function(err, result) {  //链接数据库
+    conn.query(sql_add, [params.title, params.author,params.content,params.type,params.readers,params.likes,params.intro,new Date()], function(err, result) {  //链接数据库
         try{
             if (err) {
                 res.send(response(false,err))
@@ -67,7 +67,9 @@ router.get('/getArticle',(req,res)=>{
              return 
         }
     })
-    conn.query(sql_get, [start,end], function(err, result) {  //链接数据库
+    params.type=params.type||0
+    sql_get+=` where type= ${params.type} order by createTime desc limit ${start},${end}`
+    conn.query(sql_get, function(err, result) {  //链接数据库
         try{
            if (err) {
                  res.send(response(false,err))

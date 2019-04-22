@@ -5,8 +5,8 @@ var sqlMap = {
         update_user: 'update user set'
     },
     article:{
-    	add:'insert into article (title,author,content,type,readers,likes,createTime) values (?,?,?,?,?,?,?)',
-    	get:'select * from article order by createTime desc limit ?, ?',
+    	add:'insert into article (title,author,content,type,readers,likes,intro,createTime) values (?,?,?,?,?,?,?)',
+    	get:'select * from article ',
     	addLikes:'update article set',
     	reader:'update article set',
     	review:'insert into review (user,userid,content,articleId,createTime) values(?,?,?,?,?)',
