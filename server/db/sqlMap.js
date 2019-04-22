@@ -5,7 +5,7 @@ var sqlMap = {
         update_user: 'update user set'
     },
     article:{
-    	add:'insert into article (title,author,content,type,readers,likes,intro,createTime) values (?,?,?,?,?,?,?)',
+    	add:'insert into article (title,author,content,type,readers,likes,intro,createTime) values (?,?,?,?,?,?,?,?)',
     	get:'select * from article ',
     	addLikes:'update article set',
     	reader:'update article set',
