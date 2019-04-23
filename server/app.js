@@ -6,6 +6,8 @@ var logger = require('morgan');   //日志
 const userApi = require('./api/userApi');
 const articleApi = require('./api/articleApi');
 const uploadApi = require('./api/upload');
+const pyony = require('./api/pyony');
+const todayNews = require('./api/todayNews');
 
 var app = express();
 app.use(function (req, res, next) {  //解决跨域
@@ -33,6 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));   //静态资源目录
 app.use('/api/user', userApi);
 app.use('/api/article',articleApi)
 app.use('/api/upload',uploadApi)
+app.use('/api/pyony',pyony)
+app.use('/api/todayNews',todayNews)
 
 // catch 404 and forward to error handler
 app.use(function(err,req, res, next) {
