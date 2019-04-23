@@ -36,7 +36,7 @@ app.use('/api/user', userApi);
 app.use('/api/article',articleApi)
 app.use('/api/upload',uploadApi)
 app.use('/api/pyony',pyony)
-app.use('/api/todayNews',todayNews)
+app.use('/api/webs',todayNews)
 
 // catch 404 and forward to error handler
 app.use(function(err,req, res, next) {
