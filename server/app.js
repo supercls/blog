@@ -1,15 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');  //请求设置cookie
-var logger = require('morgan');   //日志
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');  //请求设置cookie
+const logger = require('morgan');   //日志
+const WebSocket = require('ws').Server;  //websocket
 const userApi = require('./api/userApi');
 const articleApi = require('./api/articleApi');
 const uploadApi = require('./api/upload');
 const pyony = require('./api/pyony');
 const todayNews = require('./api/todayNews');
 
-var app = express();
+const app = express();
 app.use(function (req, res, next) {  //解决跨域
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
@@ -22,7 +23,27 @@ app.use(function (req, res, next) {  //解决跨域
     next();
   }
 });
-
+//websocket
+const WebSocketServer =new WebSocket({
+  port:3001
+})
+const Wsocket=()=>{
+  WebSocketServer.on('connection',(ws)=>{
+      ws.on('message',(msg)=>{
+          WebSocketServer.clients.forEach((client)=>{
+              client.send(msg);
+          });
+      })
+  })
+}
+try{
+  Wsocket()
+}catch(e){
+    console.log('正在重新连接...')
+    setTimeout(()=>{
+      Wsocket()
+    },1000)
+}
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -37,19 +58,12 @@ app.use('/api/article',articleApi)
 app.use('/api/upload',uploadApi)
 app.use('/api/pyony',pyony)
 app.use('/api/webs',todayNews)
-
-// catch 404 and forward to error handler
 app.use(function(err,req, res, next) {
   return res.json({'success':false, 'msg':err.stack})
 });
-
-// error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });

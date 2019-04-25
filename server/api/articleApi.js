@@ -67,7 +67,7 @@ router.get('/getArticle',(req,res)=>{
              return 
         }
     })
-    params.type=params.type||0
+    params.type=params.type||''
     sql_get+=` where type= ${params.type} order by createTime desc limit ${start},${end}`
     conn.query(sql_get, function(err, result) {  //链接数据库
         try{
@@ -88,6 +88,27 @@ router.get('/getArticle',(req,res)=>{
         }catch(e){
                res.send(response(false,e)) 
         }
+    })
+})
+router.get('/articleDetail',(req,res) => {
+    var params = req.query || req.params;
+    var sql_get=`select * from article where id = ${params.id}`
+    conn.query(sql_get, function(err, result) {  //链接数据库
+        try{
+            if (err) {
+                res.send(response(false,err))
+                return
+            }
+            if (!result[0]) {
+                res.send(response(true,'暂无数据',result))
+            }
+            else {
+               res.send(response(true,'获取成功',result))
+            }    
+        }catch(e){
+            res.send(response(false,e))
+        }
+       
     })
 })
 //点赞

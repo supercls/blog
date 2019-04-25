@@ -12,7 +12,7 @@ var response=function(bolen,msg,data){
 router.get('/', function(req, res, next) {
     try{
         var params = req.query || req.params;  //
-        superagent.get(`https://segmentfault.com/`)
+        superagent.get(`https://segmentfault.com/channel/frontend`)
             .end(function (err, sres) {
                 if (err) {
                     return next(err);
